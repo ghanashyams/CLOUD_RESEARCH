@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="330" viewBox="0 0 700 330" font-family="-apple-system, Segoe UI, Roboto, sans-serif">
+  <defs>
+    <marker id="arw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#475569" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <rect width="700" height="330" fill="#ffffff"/>
+  <text x="20" y="28" font-size="15" font-weight="700" fill="#0f172a">Containers/sidecars inside one pod  vs.  replicas of that pod</text>
+
+  <!-- one pod with containers -->
+  <rect x="30" y="52" width="270" height="240" rx="14" fill="#ecfeff" stroke="#0891b2" stroke-width="1.5"/>
+  <text x="48" y="78" font-size="13" font-weight="700" fill="#0e7490">Pod</text>
+  <text x="48" y="96" font-size="11" fill="#155e75">shared network + storage</text>
+
+  <rect x="54" y="112" width="222" height="52" rx="8" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.2"/>
+  <text x="165" y="133" font-size="12.5" font-weight="700" fill="#5b21b6" text-anchor="middle">container (app)</text>
+  <text x="165" y="151" font-size="11" fill="#6d28d9" text-anchor="middle">the main workload</text>
+
+  <rect x="54" y="176" width="222" height="52" rx="8" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.2"/>
+  <text x="165" y="197" font-size="12.5" font-weight="700" fill="#5b21b6" text-anchor="middle">container (sidecar)</text>
+  <text x="165" y="215" font-size="11" fill="#6d28d9" text-anchor="middle">proxy (Envoy) — mTLS, routing</text>
+
+  <rect x="54" y="240" width="222" height="40" rx="8" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.2"/>
+  <text x="165" y="264" font-size="12.5" font-weight="700" fill="#5b21b6" text-anchor="middle">container (sidecar) — log shipper</text>
+
+  <line x1="304" y1="172" x2="344" y2="172" stroke="#475569" stroke-width="1.5" marker-end="url(#arw)"/>
+  <text x="324" y="160" font-size="10.5" fill="#64748b" text-anchor="middle">replicated</text>
+
+  <!-- replicas -->
+  <text x="360" y="70" font-size="12.5" font-weight="700" fill="#0f172a">Deployment: 3 replicas of that pod</text>
+  <rect x="360" y="82" width="310" height="58" rx="10" fill="#ecfeff" stroke="#0891b2" stroke-width="1.5"/>
+  <text x="515" y="106" font-size="12.5" font-weight="700" fill="#0e7490" text-anchor="middle">Replica 1 (pod)</text>
+  <text x="515" y="124" font-size="11" fill="#155e75" text-anchor="middle">app + 2 sidecars</text>
+  <rect x="360" y="152" width="310" height="58" rx="10" fill="#ecfeff" stroke="#0891b2" stroke-width="1.5"/>
+  <text x="515" y="176" font-size="12.5" font-weight="700" fill="#0e7490" text-anchor="middle">Replica 2 (pod)</text>
+  <text x="515" y="194" font-size="11" fill="#155e75" text-anchor="middle">app + 2 sidecars</text>
+  <rect x="360" y="222" width="310" height="58" rx="10" fill="#ecfeff" stroke="#0891b2" stroke-width="1.5"/>
+  <text x="515" y="246" font-size="12.5" font-weight="700" fill="#0e7490" text-anchor="middle">Replica 3 (pod)</text>
+  <text x="515" y="264" font-size="11" fill="#155e75" text-anchor="middle">app + 2 sidecars</text>
+
+  <text x="30" y="315" font-size="11" fill="#64748b">Containers per pod = different helpers, one pod (vertical).  Replicas = identical copies of the whole pod, scaled out (horizontal).</text>
+</svg>

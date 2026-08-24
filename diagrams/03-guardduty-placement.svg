@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="380" viewBox="0 0 720 380" font-family="-apple-system, Segoe UI, Roboto, sans-serif">
+  <defs>
+    <marker id="arwd" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <rect width="720" height="380" fill="#ffffff"/>
+  <text x="20" y="28" font-size="15" font-weight="700" fill="#0f172a">GuardDuty — out-of-band, consumes telemetry (not inline)</text>
+
+  <!-- cluster with telemetry sources -->
+  <rect x="30" y="52" width="340" height="300" rx="16" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="50" y="76" font-size="12.5" font-weight="700" fill="#334155">EKS cluster in VPC</text>
+
+  <rect x="55" y="92" width="290" height="60" rx="8" fill="#ecfdf5" stroke="#059669" stroke-width="1.3"/>
+  <text x="200" y="116" font-size="12" font-weight="700" fill="#047857" text-anchor="middle">Network telemetry</text>
+  <text x="200" y="134" font-size="10.5" fill="#059669" text-anchor="middle">VPC Flow Logs + DNS logs</text>
+
+  <rect x="55" y="164" width="290" height="60" rx="8" fill="#ecfdf5" stroke="#059669" stroke-width="1.3"/>
+  <text x="200" y="188" font-size="12" font-weight="700" fill="#047857" text-anchor="middle">Control-plane activity</text>
+  <text x="200" y="206" font-size="10.5" fill="#059669" text-anchor="middle">CloudTrail + EKS audit logs</text>
+
+  <rect x="55" y="236" width="290" height="60" rx="8" fill="#fff1f2" stroke="#e11d48" stroke-width="1.3"/>
+  <text x="200" y="260" font-size="12" font-weight="700" fill="#be123c" text-anchor="middle">Runtime Monitoring agent</text>
+  <text x="200" y="278" font-size="10.5" fill="#e11d48" text-anchor="middle">eBPF DaemonSet — optional, per node</text>
+
+  <text x="200" y="326" font-size="10.5" fill="#64748b" text-anchor="middle">only the runtime agent is actually inside the cluster;</text>
+  <text x="200" y="342" font-size="10.5" fill="#64748b" text-anchor="middle">the rest is external log consumption</text>
+
+  <!-- GuardDuty -->
+  <rect x="450" y="140" width="230" height="120" rx="12" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+  <text x="565" y="172" font-size="14" font-weight="700" fill="#b91c1c" text-anchor="middle">AWS GuardDuty</text>
+  <text x="565" y="196" font-size="11" fill="#dc2626" text-anchor="middle">out-of-band threat detection</text>
+  <text x="565" y="216" font-size="10.5" fill="#ef4444" text-anchor="middle">consumes telemetry, not inline</text>
+  <text x="565" y="234" font-size="10.5" fill="#ef4444" text-anchor="middle">ML baselines → findings</text>
+
+  <!-- dashed feeds -->
+  <path d="M345 122 Q400 122 448 175" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arwd)"/>
+  <path d="M345 194 L448 194" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arwd)"/>
+  <path d="M345 266 Q400 266 448 225" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#arwd)"/>
+  <text x="400" y="112" font-size="10" fill="#94a3b8" text-anchor="middle">telemetry (dashed)</text>
+</svg>
